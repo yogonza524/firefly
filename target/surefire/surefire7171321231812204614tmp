@@ -1,0 +1,22 @@
+#surefire
+#Wed Apr 06 15:15:51 ART 2016
+testClassesDirectory=C\:\\Users\\pichon\\Documents\\GitHub\\l\\target\\test-classes
+forkMode=once
+classPathUrl.3=C\:\\Users\\pichon\\.m2\\repository\\org\\hamcrest\\hamcrest-core\\1.3\\hamcrest-core-1.3.jar
+classPathUrl.2=C\:\\Users\\pichon\\.m2\\repository\\junit\\junit\\4.12\\junit-4.12.jar
+useManifestOnlyJar=true
+classPathUrl.1=C\:\\Users\\pichon\\Documents\\GitHub\\l\\target\\classes
+classPathUrl.0=C\:\\Users\\pichon\\Documents\\GitHub\\l\\target\\test-classes
+reportsDirectory=C\:\\Users\\pichon\\Documents\\GitHub\\l\\target\\surefire-reports
+providerConfiguration=org.apache.maven.surefire.junit4.JUnit4Provider
+testSuiteDefinitionTestSourceDirectory=C\:\\Users\\pichon\\Documents\\GitHub\\l\\src\\test\\java
+requestedTest=ProgramaTest
+surefireClassPathUrl.1=C\:\\Users\\pichon\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-api\\2.10\\surefire-api-2.10.jar
+surefireClassPathUrl.0=C\:\\Users\\pichon\\.m2\\repository\\org\\apache\\maven\\surefire\\surefire-junit4\\2.10\\surefire-junit4-2.10.jar
+runOrder=filesystem
+useSystemClassLoader=true
+isTrimStackTrace=true
+enableAssertions=true
+failIfNoTests=true
+includes0=**/ProgramaTest.java
+childDelegation=false
