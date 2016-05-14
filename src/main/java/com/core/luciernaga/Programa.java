@@ -10,7 +10,9 @@ import java.awt.Desktop;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.logging.Logger;
 
 /**
@@ -35,6 +37,20 @@ public class Programa {
     private String promBrillo = "";
     private String bestBrillo = "";
     private String distanciaToBest = "";
+    
+    private List<Luciernaga[]> generaciones;
+
+    public List<Luciernaga[]> getGeneraciones() {
+        return generaciones;
+    }
+
+    public void setGeneraciones(List<Luciernaga[]> generaciones) {
+        this.generaciones = generaciones;
+    }
+
+    public Programa() {
+        generaciones = new ArrayList<>();
+    }
 
     public char[] getVariables() {
         return variables;
@@ -193,7 +209,7 @@ public class Programa {
         Luciernaga mejorluciernaga = null;
         
         while ((continuar) && (iteracionesGlobal < iteracionesEjecucion)){
-
+            this.generaciones.add(luciernagas); //Salvo las generaciones para graficar luego
             luciernagaSolucion = null;
             iteraciones = 0;
             generarLuciernagas(mejorluciernaga);
