@@ -22,6 +22,102 @@ public class Luciernaga {
     int valPalabra3;
     int longP1, longP2, longP3, longVar;
 
+    public static int getNumLuciernagasAgrupadas() {
+        return numLuciernagasAgrupadas;
+    }
+
+    public static void setNumLuciernagasAgrupadas(int numLuciernagasAgrupadas) {
+        Luciernaga.numLuciernagasAgrupadas = numLuciernagasAgrupadas;
+    }
+
+    public char[] getPalabra1() {
+        return palabra1;
+    }
+
+    public void setPalabra1(char[] palabra1) {
+        this.palabra1 = palabra1;
+    }
+
+    public char[] getPalabra2() {
+        return palabra2;
+    }
+
+    public void setPalabra2(char[] palabra2) {
+        this.palabra2 = palabra2;
+    }
+
+    public char[] getPalabra3() {
+        return palabra3;
+    }
+
+    public void setPalabra3(char[] palabra3) {
+        this.palabra3 = palabra3;
+    }
+
+    public char[] getVariables() {
+        return variables;
+    }
+
+    public void setVariables(char[] variables) {
+        this.variables = variables;
+    }
+
+    public Random getNumAleatorio() {
+        return numAleatorio;
+    }
+
+    public void setNumAleatorio(Random numAleatorio) {
+        this.numAleatorio = numAleatorio;
+    }
+
+    public int[] getNumeros() {
+        return numeros;
+    }
+
+    public void setNumeros(int[] numeros) {
+        this.numeros = numeros;
+    }
+
+    public int[] getMapeo() {
+        return mapeo;
+    }
+
+    public void setMapeo(int[] mapeo) {
+        this.mapeo = mapeo;
+    }
+
+    public int getLongP1() {
+        return longP1;
+    }
+
+    public void setLongP1(int longP1) {
+        this.longP1 = longP1;
+    }
+
+    public int getLongP2() {
+        return longP2;
+    }
+
+    public void setLongP2(int longP2) {
+        this.longP2 = longP2;
+    }
+
+    public int getLongP3() {
+        return longP3;
+    }
+
+    public void setLongP3(int longP3) {
+        this.longP3 = longP3;
+    }
+
+    public int getLongVar() {
+        return longVar;
+    }
+
+    public void setLongVar(int longVar) {
+        this.longVar = longVar;
+    }
+
     public int getValPalabra1() {
         return valPalabra1;
     }

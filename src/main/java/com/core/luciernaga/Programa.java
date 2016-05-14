@@ -26,7 +26,7 @@ public class Programa {
     String operacion = "+";
     int cantLuciernagas = 10;
     Luciernaga[] luciernagas = new Luciernaga[cantLuciernagas];
-    int iteracionesEjecucion = 10;
+    private int iteracionesEjecucion = 10;
     int iteracionesAcercamiento = 8;
     Luciernaga luciernagaAproximada;
     private Luciernaga luciernagaSolucion;
@@ -35,10 +35,105 @@ public class Programa {
     String promBrillo = "";
     String bestBrillo = "";
     String distanciaToBest = "";
+
+    public char[] getVariables() {
+        return variables;
+    }
+
+    public void setVariables(char[] variables) {
+        this.variables = variables;
+    }
+
+    public int getLongVariables() {
+        return longVariables;
+    }
+
+    public void setLongVariables(int longVariables) {
+        this.longVariables = longVariables;
+    }
+
+    public int getIntentos() {
+        return intentos;
+    }
+
+    public void setIntentos(int intentos) {
+        this.intentos = intentos;
+    }
+
+    public String getOperacion() {
+        return operacion;
+    }
+
+    public void setOperacion(String operacion) {
+        this.operacion = operacion;
+    }
+
+    public int getCantLuciernagas() {
+        return cantLuciernagas;
+    }
+
+    public void setCantLuciernagas(int cantLuciernagas) {
+        this.cantLuciernagas = cantLuciernagas;
+    }
+
+    public Luciernaga[] getLuciernagas() {
+        return luciernagas;
+    }
+
+    public void setLuciernagas(Luciernaga[] luciernagas) {
+        this.luciernagas = luciernagas;
+    }
+
+    public int getIteracionesAcercamiento() {
+        return iteracionesAcercamiento;
+    }
+
+    public void setIteracionesAcercamiento(int iteracionesAcercamiento) {
+        this.iteracionesAcercamiento = iteracionesAcercamiento;
+    }
+
+    public String getPromDistancia() {
+        return promDistancia;
+    }
+
+    public void setPromDistancia(String promDistancia) {
+        this.promDistancia = promDistancia;
+    }
+
+    public String getPromBrillo() {
+        return promBrillo;
+    }
+
+    public void setPromBrillo(String promBrillo) {
+        this.promBrillo = promBrillo;
+    }
+
+    public String getBestBrillo() {
+        return bestBrillo;
+    }
+
+    public void setBestBrillo(String bestBrillo) {
+        this.bestBrillo = bestBrillo;
+    }
+
+    public String getDistanciaToBest() {
+        return distanciaToBest;
+    }
+
+    public void setDistanciaToBest(String distanciaToBest) {
+        this.distanciaToBest = distanciaToBest;
+    }
     
     private static final Logger LOG = Logger.getLogger(Programa.class.getName());
-    
 
+    public int getIteracionesEjecucion() {
+        return iteracionesEjecucion;
+    }
+
+    public void setIteracionesEjecucion(int iteracionesEjecucion) {
+        this.iteracionesEjecucion = iteracionesEjecucion;
+    }
+    
     public void setLongVariable(int longV){
         this.longVariables = longV;
     }
