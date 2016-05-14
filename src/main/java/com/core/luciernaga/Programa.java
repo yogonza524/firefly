@@ -25,7 +25,7 @@ public class Programa {
     private int intentos = 15;
     private String operacion = "+";
     private int cantLuciernagas = 10;
-    private Luciernaga[] luciernagas = new Luciernaga[cantLuciernagas];
+    private Luciernaga[] luciernagas;
     private int iteracionesEjecucion = 10;
     private int iteracionesAcercamiento = 8;
     private Luciernaga luciernagaAproximada;
@@ -182,6 +182,7 @@ public class Programa {
     public boolean programa() throws IOException, URISyntaxException  {
         boolean continuar;
         boolean bandera = true;
+        luciernagas = new Luciernaga[cantLuciernagas];
         int iteraciones, iteracionesGlobal;
         double distanciaAux;
         continuar = true;
