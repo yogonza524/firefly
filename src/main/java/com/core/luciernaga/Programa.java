@@ -19,22 +19,22 @@ import java.util.logging.Logger;
  */
 public class Programa {
     
-    char[] palabra1, palabra2, palabra3;
-    char[] variables;
-    int longVariables = 0;
-    int intentos = 15;
-    String operacion = "+";
-    int cantLuciernagas = 10;
-    Luciernaga[] luciernagas = new Luciernaga[cantLuciernagas];
+    private char[] palabra1, palabra2, palabra3;
+    private char[] variables;
+    private int longVariables = 0;
+    private int intentos = 15;
+    private String operacion = "+";
+    private int cantLuciernagas = 10;
+    private Luciernaga[] luciernagas = new Luciernaga[cantLuciernagas];
     private int iteracionesEjecucion = 10;
-    int iteracionesAcercamiento = 8;
-    Luciernaga luciernagaAproximada;
+    private int iteracionesAcercamiento = 8;
+    private Luciernaga luciernagaAproximada;
     private Luciernaga luciernagaSolucion;
     
-    String promDistancia = "";
-    String promBrillo = "";
-    String bestBrillo = "";
-    String distanciaToBest = "";
+    private String promDistancia = "";
+    private String promBrillo = "";
+    private String bestBrillo = "";
+    private String distanciaToBest = "";
 
     public char[] getVariables() {
         return variables;
@@ -219,10 +219,10 @@ public class Programa {
                 if ( luciernagaSolucion != null){
                     Util.info("**********Solucion encontrada**********");
                     Util.info(Arrays.toString(variables));
-                    Util.info(Arrays.toString(luciernagaSolucion.mapeo));
-                    Util.info(luciernagaSolucion.valPalabra1);
-                    Util.info(luciernagaSolucion.valPalabra2);
-                    Util.info(luciernagaSolucion.valPalabra3);
+                    Util.info(Arrays.toString(luciernagaSolucion.getMapeo()));
+                    Util.info(luciernagaSolucion.getValPalabra1());
+                    Util.info(luciernagaSolucion.getValPalabra2());
+                    Util.info(luciernagaSolucion.getValPalabra3());
                     continuar = false;
                     bandera = false;
                     break;
@@ -248,10 +248,10 @@ public class Programa {
             Util.info("No se ha encontrado solucion");
             Util.info("Una solucion aproximada seria: ");
             Util.info(Arrays.toString(variables));
-            Util.info(Arrays.toString(mejorluciernaga.mapeo));
-            Util.info(mejorluciernaga.valPalabra1);
-            Util.info(mejorluciernaga.valPalabra2);
-            Util.info(mejorluciernaga.valPalabra3);
+            Util.info(Arrays.toString(mejorluciernaga.getMapeo()));
+            Util.info(mejorluciernaga.getValPalabra1());
+            Util.info(mejorluciernaga.getValPalabra2());
+            Util.info(mejorluciernaga.getValPalabra3());
             Util.info(" - - - - - - - - - - - - - - -");   
         }
         
@@ -269,20 +269,20 @@ public class Programa {
         return bandera;
     }
     
-    void inicializarBusqueda(){
+    public void inicializarBusqueda(){
         obtenerVariables();
         Util.info("Variables guardadas");
         Util.info(Arrays.toString(variables));
 
     }
     
-    void obtenerVariables(){
+    public void obtenerVariables(){
         obtenerVariablePalabra(palabra1);
         obtenerVariablePalabra(palabra2);
         obtenerVariablePalabra(palabra3);
     }
     
-    void obtenerVariablePalabra(char[] palabra){
+    public void obtenerVariablePalabra(char[] palabra){
         int longitud = palabra.length ;
         for(int i = 0; i < longitud; i++){
             if(noExisteVariable(palabra[i])){
@@ -292,7 +292,7 @@ public class Programa {
         }
     }
     
-    boolean noExisteVariable(char caracter){
+    public boolean noExisteVariable(char caracter){
         if(longVariables == 0){
             return true;
         }
@@ -304,7 +304,7 @@ public class Programa {
         return true;
     }
     
-    void addVariable(char caracter){
+    public void addVariable(char caracter){
         int longitud = longVariables + 1;
         char[] newVariables = new char[longitud];
         for(int i = 0; i < longVariables; i++){
@@ -315,7 +315,7 @@ public class Programa {
         longVariables = longVariables + 1;
     }
     
-    void generarLuciernagas( Luciernaga mejorAnterior ){
+    public void generarLuciernagas( Luciernaga mejorAnterior ){
          for(int i = 0; i < cantLuciernagas; i++){
             Luciernaga luciernagaX = new Luciernaga(palabra1, palabra2, palabra3, variables);
             luciernagaX.mapeoLuciernaga(longVariables);
@@ -444,7 +444,7 @@ public class Programa {
          return segunda;
     }
     
-    void buscarSolucion(){
+    public void buscarSolucion(){
         double funcionLuciernagaI, funcionLuciernagaJ;
         
             for( int i = 0;  i < cantLuciernagas; i++){
@@ -455,7 +455,7 @@ public class Programa {
                         
                         //recuerde que el valor brillo es mejor cuanto mas pequeño se hace
                         if (funcionLuciernagaI > funcionLuciernagaJ){
-                            luciernagas[i].mapeo = acercarValorUltimo(luciernagas[j].mapeo,luciernagas[i].mapeo);
+                            luciernagas[i].setMapeo(acercarValorUltimo(luciernagas[j].getMapeo(),luciernagas[i].getMapeo()));
                             luciernagas[i].encontrarValoresPalabras();
                         }
                     }
@@ -464,11 +464,11 @@ public class Programa {
     
     }
     
-    Luciernaga verificarLuciernagas(){
+    public Luciernaga verificarLuciernagas(){
         int operacion, resultado;
         for( int i = 0;  i < cantLuciernagas; i++){
-            operacion = luciernagas[i].valPalabra1 + luciernagas[i].valPalabra2;
-            resultado = luciernagas[i].valPalabra3;
+            operacion = luciernagas[i].getValPalabra1() + luciernagas[i].getValPalabra2();
+            resultado = luciernagas[i].getValPalabra3();
             if(operacion == resultado){
                     return luciernagas[i];
             }
@@ -481,13 +481,13 @@ public class Programa {
         garbage.gc();
     }
 
-    private void mostrarLuciernagas() {
+    public void mostrarLuciernagas() {
         for (int i = 0; i < cantLuciernagas; i++) {
-            Util.info(Arrays.toString(luciernagas[i].mapeo));
+            Util.info(Arrays.toString(luciernagas[i].getMapeo()));
         }
     }
 
-    private double promedioBrillo() {
+    public double promedioBrillo() {
         int acum = 0;
         double prom;
         for (int i = 0; i < cantLuciernagas; i++) {
@@ -497,12 +497,12 @@ public class Programa {
         return prom;
     }
 
-    private double promedioDistancia() {
+    public double promedioDistancia() {
         double distancia = 0;
         for (int i = 0; i < cantLuciernagas; i++) {
             for (int j = 0; j < cantLuciernagas; j++) {
                 if (i!=j) {
-                    distancia = distancia + obtenerDistancia(luciernagas[i].mapeo, luciernagas[j].mapeo);
+                    distancia = distancia + obtenerDistancia(luciernagas[i].getMapeo(), luciernagas[j].getMapeo());
                 }
             }
         }
@@ -510,7 +510,7 @@ public class Programa {
         return distancia;
     }
     
-    private Luciernaga mejorBrillo() {
+    public Luciernaga mejorBrillo() {
         Luciernaga mejor;
         mejor = luciernagas[0];
         for (int i = 1; i < cantLuciernagas; i++) {
@@ -522,10 +522,10 @@ public class Programa {
         return mejor;
     }
     
-    private double distanciaMejorLuciernaga( Luciernaga mejor) {
+    public double distanciaMejorLuciernaga( Luciernaga mejor) {
         double distancia = 0;
         for (int j = 0; j < cantLuciernagas; j++) {
-            distancia = distancia + obtenerDistancia(mejor.mapeo, luciernagas[j].mapeo);
+            distancia = distancia + obtenerDistancia(mejor.getMapeo(), luciernagas[j].getMapeo());
         }
         distancia = distancia/cantLuciernagas;
         return distancia;
@@ -552,7 +552,7 @@ public class Programa {
         return pos;
     }
     
-    private void mostrarBrillosLuciernagas() {
+    public void mostrarBrillosLuciernagas() {
         for (int i = 0; i < cantLuciernagas; i++) {
             Util.info(luciernagas[i].obtenerValorFuncion(operacion));
         }

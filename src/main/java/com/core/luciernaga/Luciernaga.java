@@ -13,14 +13,14 @@ import java.util.Random;
  */
 public class Luciernaga {
     public static int numLuciernagasAgrupadas = 0;
-    char[] palabra1, palabra2, palabra3, variables;
-    Random numAleatorio = new Random();
-    int[] numeros= {0,1,2,3,4,5,6,7,8,9};
-    int[] mapeo;
-    int valPalabra1;
-    int valPalabra2;
-    int valPalabra3;
-    int longP1, longP2, longP3, longVar;
+    private char[] palabra1, palabra2, palabra3, variables;
+    private Random numAleatorio = new Random();
+    private int[] numeros= {0,1,2,3,4,5,6,7,8,9};
+    private int[] mapeo;
+    private int valPalabra1;
+    private int valPalabra2;
+    private int valPalabra3;
+    private int longP1, longP2, longP3, longVar;
 
     public static int getNumLuciernagasAgrupadas() {
         return numLuciernagasAgrupadas;

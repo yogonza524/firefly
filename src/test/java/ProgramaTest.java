@@ -65,12 +65,13 @@ public class ProgramaTest {
 //     @Ignore
      public void first() throws IOException, URISyntaxException {
          Programa p = new Programa();
-         p.setPalabra1("EARTH".toCharArray());
-         p.setPalabra2("URANUS".toCharArray());
-         p.setPalabra3("SATURN".toCharArray());
+         Util.setEnableInfo(true);
+         p.setPalabra1("SEND".toCharArray());
+         p.setPalabra2("MORE".toCharArray());
+         p.setPalabra3("MONEY".toCharArray());
 
          int n = 0;
-         while(n < 1){
+         while(p.getLuciernagaSolucion() == null && n < 30){
              p.programa();
              n++;
          }
