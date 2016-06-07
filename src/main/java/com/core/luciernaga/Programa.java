@@ -247,16 +247,6 @@ public class Programa {
                 iteraciones++;
             }
             mejorluciernaga = mejorBrillo();
-//            if(solucionAproximada == null){
-//                solucionAproximada = luciernagas[1];
-//                luciernagaAproximada = luciernagas[1];
-//            }
-//            if(solucionAproximada != null){
-//                if(solucionAproximada.obtenerValorFuncion("+") > luciernagas[1].obtenerValorFuncion("+")){
-//                    solucionAproximada = luciernagas[1];
-//                    luciernagaAproximada = luciernagas[1];                        
-//                }
-//            }
             iteracionesGlobal++;
 
         }
@@ -467,8 +457,8 @@ public class Programa {
             for( int i = 0;  i < cantLuciernagas; i++){
                 for( int j = 0;  j < cantLuciernagas; j++){
                     if( i != j ){
-                        funcionLuciernagaI = luciernagas[i].obtenerValorFuncion("+");
-                        funcionLuciernagaJ = luciernagas[j].obtenerValorFuncion("+");
+                        funcionLuciernagaI = luciernagas[i].obtenerValorFuncion(operacion);
+                        funcionLuciernagaJ = luciernagas[j].obtenerValorFuncion(operacion);
                         
                         //recuerde que el valor brillo es mejor cuanto mas pequeño se hace
                         if (funcionLuciernagaI > funcionLuciernagaJ){
@@ -482,11 +472,16 @@ public class Programa {
     }
     
     public Luciernaga verificarLuciernagas(){
-        int operacion, resultado;
+        int op, resultado;
         for( int i = 0;  i < cantLuciernagas; i++){
-            operacion = luciernagas[i].getValPalabra1() + luciernagas[i].getValPalabra2();
+            if (this.operacion.equals("+")) {
+                op = luciernagas[i].getValPalabra1() + luciernagas[i].getValPalabra2();
+            }
+            else{
+                op = luciernagas[i].getValPalabra1() - luciernagas[i].getValPalabra2();
+            }
             resultado = luciernagas[i].getValPalabra3();
-            if(operacion == resultado){
+            if(op == resultado){
                     return luciernagas[i];
             }
         }
@@ -573,5 +568,16 @@ public class Programa {
         for (int i = 0; i < cantLuciernagas; i++) {
             Util.info(luciernagas[i].obtenerValorFuncion(operacion));
         }
-    }        
+    }      
+    
+    public void mostrarSolución(){
+        if (this.luciernagaSolucion != null) {
+            System.out.println(String.valueOf(palabra1) + "(" + this.luciernagaSolucion.getValPalabra1() + ")");
+            System.out.println(String.valueOf(palabra2) + "(" + this.luciernagaSolucion.getValPalabra2() + ")");
+            System.out.println(String.valueOf(palabra3) + "(" + this.luciernagaSolucion.getValPalabra3() + ")");
+        }
+        else{
+            System.out.println("No se ha encontrado solución");
+        }
+    }
 }

@@ -65,10 +65,11 @@ public class ProgramaTest {
 //     @Ignore
      public void first() throws IOException, URISyntaxException {
          Programa p = new Programa();
+         p.setOperacion("-");
          Util.setEnableInfo(true);
-         p.setPalabra1("SEND".toCharArray());
+         p.setPalabra1("MONEY".toCharArray());
          p.setPalabra2("MORE".toCharArray());
-         p.setPalabra3("MONEY".toCharArray());
+         p.setPalabra3("SEND".toCharArray());
 
          int n = 0;
          while(p.getLuciernagaSolucion() == null && n < 30){
@@ -77,6 +78,7 @@ public class ProgramaTest {
          }
          if (p.getLuciernagaSolucion() != null) {
              Util.info("Solucionado");
+             p.mostrarSolución();
          }
      }
 

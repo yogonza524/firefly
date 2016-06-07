@@ -250,8 +250,6 @@ public class Luciernaga {
         return funcion;
     }
     
-    // Este metodo se ha obtenido de; siguiente sitio
-    // http://www.taringa.net/post/apuntes-y-monografias/11337348/Invertir-numero-123-a-321-java.html
     int invertir(int numero){
          
         int num_inv , div_entera , resto_div;  
